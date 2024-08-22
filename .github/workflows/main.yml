@@ -1,4 +1,4 @@
-name: Django App Deployment using CI-CD with Nginx
+name: Continuous Integration and Delivery
 
 on: [push]
 
@@ -33,7 +33,7 @@ jobs:
       - name: Build images
         id: build-images
         run: |
-          docker-compose build
+          docker-compose -f docker-compose.ci.yml build
       - name: Push images
         run: |
           docker push ${{ env.DJANGO_TUTORIAL_API_IMAGE }}
